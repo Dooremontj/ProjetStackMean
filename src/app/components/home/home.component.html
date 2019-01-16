@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h1>Welcome {{authService.currentUser}}!</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <img class="img-responsive" [src]="picturePath" width="200px">
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-sm-12">
+        <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".png,.jpg,.gif">
+    </div>
+</div>
+<ng-container *ngIf="!authService.isAdmin">
+    <div class="row">
+        <div class="col-sm-12">
+            <app-current-rent-list></app-current-rent-list>
+        </div>
+    </div>
+</ng-container>

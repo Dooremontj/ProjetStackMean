@@ -1,0 +1,54 @@
+<form id="frm" class="form" [formGroup]="frm" novalidate>
+    <h1 class="header">{{(frm.value._id ? frm.value.title : 'Add a new book')}} </h1>
+    <mat-tab-group mat-stretch-tabs dynamicHeight>
+        <mat-tab label="General Data">
+            <div class="form">
+                <mat-form-field>
+                    <input matInput placeholder="Isbn" [formControl]="ctlIsbn" required [readonly]="frm.value._id">
+                    <mat-error class="field-error" *ngIf="ctlIsbn.hasError('required')">Required</mat-error>
+                    <mat-error class="field-error" *ngIf="ctlIsbn.hasError('minlength')">Minimum length is {{ctlIsbn.errors['minlength'].requiredLength}}</mat-error>
+                    <mat-error class="field-error" *ngIf="ctlIsbn.hasError('isbnUsed')">Isbn already in use</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Title" [formControl]="ctlTitle" required>
+                    <mat-error class="field-error" *ngIf="ctlTitle.hasError('required')">Required</mat-error>
+                    <mat-error class="field-error" *ngIf="ctlTitle.hasError('minlength')">Minimum length is {{ctlTitle.errors['minlength'].requiredLength}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Editor" [formControl]="ctlEditor">
+                    <mat-error class="field-error" *ngIf="ctlEditor.hasError('required')">Required</mat-error>
+                    <mat-error class="field-error" *ngIf="ctlEditor.hasError('minlength')">Minimum length is {{ctlEditor.errors['minlength'].requiredLength}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Author" [formControl]="ctlAuthor">
+                    <mat-error class="field-error" *ngIf="ctlAuthor.hasError('required')">Required</mat-error>
+                    <mat-error class="field-error" *ngIf="ctlAuthor.hasError('minlength')">Minimum length is {{ctlAuthor.errors['minlength'].requiredLength}}</mat-error>
+                </mat-form-field>
+                </div>
+                <div class="footer">
+                    <button type="submit" form="frm" class="btn btn-default mr-2" [disabled]="frm.pristine || frm.invalid || frm.pending" (click)="update()">{{frm.value._id ? 'Update' : 'Add'}}</button>
+                    <button type="reset" class="btn btn-default" (click)="cancel()">Cancel</button>
+                </div>
+        </mat-tab>
+        <mat-tab label="Category">
+            <div>
+                    <app-add-category-list></app-add-category-list>
+                    <app-remove-category-list></app-remove-category-list>
+            </div>
+        </mat-tab>
+        <mat-tab label="Picture">
+            <div class="picture-container">
+                <img class="img-responsive" [src]="picturePath" width="200px">
+                <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".png,.jpg,.gif">
+            </div>
+            <div class="footer">
+                <button type="submit" form="frm" class="btn btn-default mr-2" [disabled]="frm.pristine || frm.invalid || frm.pending" (click)="update()">{{frm.value._id ? 'Update' : 'Add'}}</button>
+                <button type="reset" class="btn btn-default" (click)="cancel()">Cancel</button>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+    <!--<div class="footer">
+        <button type="submit" form="frm" class="btn btn-default mr-2" [disabled]="frm.pristine || frm.invalid || frm.pending" (click)="update()">{{frm.value._id ? 'Update' : 'Add'}}</button>
+        <button type="reset" class="btn btn-default" (click)="cancel()">Cancel</button>
+    </div>-->
+</form>

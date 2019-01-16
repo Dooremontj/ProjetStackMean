@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "9336fbbd-f532-4352-acf9-54541cef41c0",
+		"name": "tests.v03",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/api/members",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/members",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"members"
+					]
+				},
+				"description": "liste tous les membres"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/members/ben",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/members/ben",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"members",
+						"ben"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/members",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "pseudo",
+							"value": "xxx",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "xxx",
+							"type": "text"
+						},
+						{
+							"key": "profile",
+							"value": "Hi, I'm xxx!",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/members",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/members/xxx",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/members/xxx",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"members",
+						"xxx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/members/xxx",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "profile",
+							"value": "New profile for xxx!",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/members/xxx",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"members",
+						"xxx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/members/xxx",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/members/xxx",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"members",
+						"xxx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/members/xxx",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/members/xxx",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"members",
+						"xxx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/members/xxx",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/members/xxx",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"members",
+						"xxx"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

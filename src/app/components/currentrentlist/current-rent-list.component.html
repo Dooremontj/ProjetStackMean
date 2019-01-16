@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h3>You have currently rent the following books :</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="mat-elevation-z2">
+            <table mat-table [dataSource]="dataSource" matSort matSortActive="orderDate" matSortDirection="asc" matSortDisableClear>
+                <ng-container matColumnDef="orderDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Order Date </th>
+                    <td mat-cell *matCellDef="let row"> {{row.orderDate | date : format : timezone}} </td>
+                </ng-container>
+                <ng-container matColumnDef="items">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Book </th>
+                    <td mat-cell *matCellDef="let row"> {{row.items.book.title}} ( {{row.items.book.author}} )</td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                </tr>
+            </table>
+            <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<mat-tab-group mat-stretch-tabs dynamicHeight>
+    <mat-tab label="General Data">
+        <div class="form">
+            <mat-form-field>
+                <input matInput placeholder="Isbn" [formControl]="ctlIsbn" readonly>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Title" [formControl]="ctlTitle" readonly>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Editor" [formControl]="ctlEditor" readonly>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Author" [formControl]="ctlAuthor" readonly>
+            </mat-form-field>
+            </div>
+    </mat-tab>
+    <mat-tab label="Category">
+        <div class="category-container">
+            <ng-container *ngIf="cat !== null">
+                <ng-container *ngFor="let c of cat">
+                    <p>{{c.name}}</p>
+                </ng-container>
+            </ng-container>
+        </div>
+    </mat-tab>
+    <mat-tab label="Picture">
+        <div class="picture-container">
+            <img class="img-responsive" [src]="picturePath" width="200px">
+        </div>
+    </mat-tab>
+</mat-tab-group>

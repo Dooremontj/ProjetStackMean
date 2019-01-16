@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h3>You can manage the following books :</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+
+        <mat-form-field>
+            <input matInput [formControl]="memberFilter"  placeholder="Filter Member">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput [formControl]="bookFilter" placeholder="Filter Book">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" [formControl]="dateFilter" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-radio-group [formControl]="stateFilter">
+            <label> State : </label>
+            <mat-radio-button value="1"> Open</mat-radio-button>
+            <mat-radio-button value="2"> Close</mat-radio-button>
+            <mat-radio-button value="3"> All</mat-radio-button>
+        </mat-radio-group>
+        <div class="mat-elevation-z2">
+            <table mat-table [dataSource]="dataSource" matSort matSortActive="orderDate" matSortDirection="asc" matSortDisableClear>
+                <ng-container matColumnDef="orderDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Order Date </th>
+                    <td mat-cell *matCellDef="let row"> {{row.orderDate | date : format : timezone}} </td>
+                </ng-container>
+                <ng-container matColumnDef="member">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Member </th>
+                    <td mat-cell *matCellDef="let row"> {{row.member.pseudo}} </td>
+                </ng-container>
+                <ng-container matColumnDef="book">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Book </th>
+                    <td mat-cell *matCellDef="let row"> {{row.book.title}} ( {{row.book.author}} )</td>
+                </ng-container>
+                <ng-container matColumnDef="returnDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Return Date </th>
+                    <td mat-cell *matCellDef="let row"> {{row.returnDate | date : format : timezone}} </td>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Actions </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button mat-icon-button tabindex="-1">
+                                <mat-icon (click)="edit(row)">edit</mat-icon>
+                            </button>
+                            <button mat-icon-button tabindex="-1">
+                                <mat-icon (click)="delete(row)">delete</mat-icon>
+                            </button>
+                        </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                </tr>
+            </table>
+            <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+    </div>
+</div>

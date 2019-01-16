@@ -1,0 +1,24 @@
+div.tableau {
+    display : inline-block;
+    width: 50%;
+    height: 50%;
+    vertical-align: top;
+
+}
+
+div {
+    width: 100%;
+}
+  
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  .mat-elevation-z2 {
+    height: 200px;
+    overflow: auto;
+}
